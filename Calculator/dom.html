@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="calc">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Strona główna</title>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+<body>
+<nav class="navbar navbar-inverse bg-inverse">
+  <form class="form-inline">
+    <center>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <a href="index.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Strona Główna</button></a>
+        </div>
+        <div class="col-sm-3">
+          <a href="dom.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Dom</button></a>
+        </div>
+        <div class="col-sm-3">
+          <a href="calc.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Kalkulator</button></a>
+        </div>
+        <div class="col-sm-3">
+          <a href="kontakt.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Kontakt</button></a>
+        </div>
+      </div>
+    </div>
+      </center>
+    <br>
+  </form>
+</nav>
+
+
+<div class="jumbotron text-center">
+  <div class="gallery">
+    <img onmouseover="preview.src=img1.src" name="img1" src="dom/parter.jpg" alt=""/>
+    <img onmouseover="preview.src=img2.src" name="img2" src="dom/poddasze.jpg" alt=""/>
+    <img onmouseover="preview.src=img3.src" name="img3" src="dom/przekroj.jpg" alt=""/>
+    <img onmouseover="preview.src=img4.src" name="img4" src="dom/parterop.jpg" alt=""/>
+    <img onmouseover="preview.src=img5.src" name="img5" src="dom/poddaszeop.jpg" alt=""/>
+  </div><br/>
+
+  <div class="preview" align="center">
+    <img name="preview" src="images/img1.jpg" alt=""/>
+  </div>
+</div>
+
+</center>
+
+<div class="footer">
+        <div class="container">
+          <center>
+                 <div class="stopka"></div>
+                    
+                    <script>
+                    $.getJSON('http://echo.jsontest.com/Autor/Bartek/Program/Kalkulator', function(footer) {
+                        
+                        var text = `Autor: ${footer.Autor}
+                                    Program: ${footer.Program}`
+                                    
+                        
+                        $(".stopka").html(text);
+                    });
+                    </script>
+        </div>
+    </div>
+
+
+
+
+  </body>
+  </html>

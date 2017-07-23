@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html ng-app="calc">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+<body ng-controller="MainCtrl">
+<nav class="navbar navbar-inverse bg-inverse">
+  <form class="form-inline">
+    <center>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <a href="index.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Strona Główna</button></a>
+        </div>
+        <div class="col-sm-3">
+          <a href="dom.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Dom</button></a>
+        </div>
+        <div class="col-sm-3">
+          <a href="calc.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Kalkulator</button></a>
+        </div>
+        <div class="col-sm-3">
+          <a href="kontakt.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Kontakt</button></a>
+        </div>
+      </div>
+    </div>
+      </center>
+    <br>
+  </form>
+</nav>
+
+
+
+<div class="jumbotron text-center">
+<center>
+	<div class="calcbody">
+    <div class="part">
+  		<div class="calcinputs">
+          <div class="title">
+           Korytarz:
+          </div>
+           <br>
+          <div class="input">
+           <div ng-repeat="item in cor">
+              <p>{{item.name}}: Czas[h]:<input type=text ng-model="item.value"> Moc[W]: <input type=text ng-model="item.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu w tym pomieszczeniu [kWh]: {{sum(cor)}}<br>
+                 Co daje koszty [zł]: {{sum(cor)*0.55}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+    <div class="part">
+      <div class="calcinputs">
+          <div class="title">
+           Kuchnia:
+          </div>
+           <br>
+          <div class="input">
+           <div ng-repeat="item2 in kit">
+              <p>{{item2.name}}: Czas[h]:<input type=text ng-model="item2.value"> Moc[W]: <input type=text ng-model="item2.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu w tym pomieszczeniu [kWh]: {{sum(kit)}}<br>
+                 Co daje koszty [zł]: {{sum(kit)}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+    <div class="part">
+      <div class="calcinputs">
+          <div class="title">
+           Łazienka:
+          </div>
+           <br>
+          <div class="input">
+           <div ng-repeat="item3 in bat">
+              <p>{{item3.name}}: Czas[h]:<input type=text ng-model="item3.value"> Moc[W]: <input type=text ng-model="item3.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu w tym pomieszczeniu [kWh]: {{sum(bat)}}><br>
+                 Co daje koszty [zł]: {{sum(bat)}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+  <br>
+  <div class="part">
+      <div class="calcinputs">
+          <div class="title">
+           Salon:
+          </div>
+           <br>
+          <div class="input">
+           <div ng-repeat="item4 in liv">
+              <p>{{item4.name}}: Czas[h]:<input type=text ng-model="item4.value"> Moc[W]: <input type=text ng-model="item4.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu w tym pomieszczeniu [kWh]: {{sum(liv)}}<br>
+                 Co daje koszty [zł]: {{sum(liv)}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+    <div class="part">
+      <div class="calcinputs">
+          <div class="title">
+           Taras:
+          </div>
+           <br>
+          <div class="input">
+            <div ng-repeat="item5 in ter">
+              <p>{{item5.name}}: Czas[h]:<input type=text ng-model="item5.value"> Moc[W]: <input type=text ng-model="item5.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu w tym pomieszczeniu [kWh]: {{sum(ter)}}<br>
+                 Co daje koszty [zł]: {{sum(ter)}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+    <div class="part">
+      <div class="calcinputs">
+          <div class="title">
+           Schody:
+          </div>
+           <br>
+          <div class="input">
+           <div ng-repeat="item6 in sta">
+              <p>{{item6.name}}: Czas[h]:<input type=text ng-model="item6.value"> Moc[W]: <input type=text ng-model="item6.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu w tym pomieszczeniu [kWh]: {{sum(sta)}}<br>
+                 Co daje koszty [zł]: {{sum(sta)}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+    <div class="part">
+      <div class="calcinputs">
+          <div class="title">
+           Korytarz na piętrze:
+          </div>
+           <br>
+          <div class="input">
+            <div ng-repeat="item7 in corup">
+              <p>{{item7.name}}: Czas[h]:<input type=text ng-model="item7.value"> Moc[W]: <input type=text ng-model="item7.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu w tym pomieszczeniu [kWh]: {{sum(corup)}}<br>
+                 Co daje koszty [zł]: {{sum(corup)}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+    <div class="part">
+      <div class="calcinputs">
+          <div class="title">
+           Pokój 1:
+          </div>
+           <br>
+          <div class="input">
+            <div ng-repeat="item8 in room1">
+              <p>{{item8.name}}: Czas[h]:<input type=text ng-model="item8.value"> Moc[W]: <input type=text ng-model="item8.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu w tym pomieszczeniu [kWh]: {{sum(room1)}}<br>
+                 Co daje koszty [zł]: {{sum(room1)}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+    <div class="part">
+      <div class="calcinputs">
+          <div class="title">
+           Pokój 2:
+          </div>
+           <br>
+          <div class="input">
+            <div ng-repeat="item9 in room2">
+              <p>{{item9.name}}: Czas[h]:<input type=text ng-model="item9.value"> Moc[W]: <input type=text ng-model="item9.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu w tym pomieszczeniu [kWh]: {{sum(room2)}}<br>
+                 Co daje koszty [zł]: {{sum(room2)}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+    <div class="part">
+      <div class="calcinputs">
+          <div class="title">
+           Pokój 3:
+          </div>
+           <br>
+          <div class="input">
+            <div ng-repeat="item10 in room3">
+              <p>{{item10.name}}: Czas[h]:<input type=text ng-model="item10.value"> Moc[W]: <input type=text ng-model="item10.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu w tym pomieszczeniu [kWh]: {{sum(room3)}}<br>
+                 Co daje koszty [zł]: {{sum(room3)}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+    <div class="part">
+      <div class="calcinputs">
+          <div class="title">
+           Pokój 4:
+          </div>
+           <br>
+          <div class="input">
+           <div ng-repeat="item11 in room4">
+              <p>{{item11.name}}: Czas[h]:<input type=text ng-model="item11.value"> Moc[W]: <input type=text ng-model="item11.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu w tym pomieszczeniu [kWh]: {{sum(room4)}}<br>
+                 Co daje koszty [zł]: {{sum2(room4)}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+    <div class="part">
+      <div class="calcinputs">
+          <div class="title">
+           Inne:
+          </div>
+           <br>
+          <div class="input">
+            <div ng-repeat="item12 in other"> 
+              <p>{{item12.name}}: Czas[h]:<input type=text ng-model="item12.value"> Moc[W]: <input type=text ng-model="item12.power"></p>
+            </div>
+            <div class="partfinal">
+                 Zużycie prądu przez inne rzeczy [kWh]: {{sum(other)}}<br>
+                 Co daje koszty [zł]: {{sum(other)}}<br>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+           <div class="final">
+              Całkowite zużycie prądu [kWh]: {{sum(cor)+sum(kit)+sum(bat)+sum(liv)+sum(ter)+sum(sta)+sum(corup)+sum(room1)+sum(room2)+sum(room3)+sum(room4)+sum(other)}}<br>
+              Całkowity koszt zużycia prądu [zł]: {{(sum(cor)+sum(kit)+sum(bat)+sum(liv)+sum(ter)+sum(sta)+sum(corup)+sum(room1)+sum(room2)+sum(room3)+sum(room4)+sum(other))*0.55}}
+           </div>
+  </div>
+  </div>
+
+<div class="footer">
+        <div class="container">
+          <center>
+                 <div class="stopka"></div>
+                    
+                        <script>
+                        $.getJSON('http://echo.jsontest.com/Autor/Bartek/Program/Kalkulator', function(footer) {
+                            
+                            var text = `Autor: ${footer.Autor}
+                                        Program: ${footer.Program}`
+                                        
+                            
+                            $(".stopka").html(text);
+                        });
+                        </script>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
