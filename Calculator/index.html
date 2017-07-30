@@ -1,92 +1,94 @@
 <!DOCTYPE html>
-<html ng-app="calc">
+<html>
 
   <head>
     <meta charset="utf-8" />
     <title>Strona główna</title>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
-    <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
     <script src="app.js"></script>
+
   </head>
 
-  <body>
+  <body class="container">
+    <nav class="navbar navbar-inverse row">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="#/home"><i class="fa fa-home"></i><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Strona główna</a>
+            </li>
+            <li>
+              <a href="#/dom"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Dom</a>
+            </li>
+            <li>
+              <a href="#/calc"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Kalkulator</a>
+            </li>
+            <li>
+              <a href="#/kontakt"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+          <div ng-app="App">
+    <div class="row">
+      <div class="span12">
 
-<nav class="navbar navbar-inverse bg-inverse">
-  <form class="form-inline">
-	  <center>
-	  <br>
-	  <div class="container">
-		  <div class="row">
-		    <div class="col-sm-3">
-		      <a href="index.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Strona Główna</button></a>
-		    </div>
-		    <div class="col-sm-3">
-		      <a href="dom.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Dom</button></a>
-		    </div>
-		    <div class="col-sm-3">
-		      <a href="calc.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Kalkulator</button></a>
-		    </div>
-		    <div class="col-sm-3">
-		      <a href="kontakt.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Kontakt</button></a>
-		    </div>
-		  </div>
-		</div>
-	    </center>
-	  <br>
-  </form>
-</nav>
+         <div class="well" ng-view></div>
 
-
-
-
-
-<div class="jumbotron text-center">
-<center>
+      </div>
+    </div>
 
 
-
-	  	<div class="hello">
-			  <font size="8">Witaj!<br></font>
-			  Miło jest mi powitatać Cię na mojej stronie.<br>
-			  Znajdziesz na niej kalkulator do obliczania średniego zużycia energii w domu.<br>
-			  W zakładce "Dom" znajdziesz plan domu w którym możesz policzyć zużycie energii.<br>
-			  Kalkulator uzupełniaj wpisując czas przez jaki korzystałeś z danego urządzenia w ciągu miesiąca.<br>
-			  Po uzupełnieniu poszczególnych okien, kalkulator automatycznie przeliczy zużycie. Nie musisz uzupełniać wszystkich okien.<br>
-			  Kalkulator oblicza koszty zużycia prądu na podstawie średnich kosztów zużycia 1 kWh w Polsce (0,55 zł).<br>
-			  </div>
-	</div>
-</center>
-<center>
-<div class="container">
-  <div class="row">
-    
-
-  </div>
+ <div class="row">
+            <div class="col-md-3">
+              <div ng-controller="pogodaCtrl">
+                <li class="list-group-item list-group-item-info">
+                  <p><font size="6"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>    Pogoda: </font><br>
+                  <b>Kraj:</b> {{pogoda.current_observation.display_location.state_name}}<br>
+                  <b>Miasto:</b> {{pogoda.current_observation.display_location.city}}<br>
+                  <b>Pogoda:</b> {{pogoda.current_observation.weather}}<br>
+                  <b>Temperatura [°C]:</b> {{pogoda.current_observation.temp_c}}<br>
+                  <b>Ciśnienie [hPa]:</b> {{pogoda.current_observation.pressure_mb}}<br>
+                  <b>Wiatr:</b> {{pogoda.current_observation.wind_string}}<br>
+                  <b>Kierunek wiatru:</b> {{pogoda.current_observation.wind_dir}}<br>
+                  </p>
+                </li>
+              </div>
+            </div>
 </div>
-</center>
 
-<div class="footer">
-        <div class="container">
-        	<center>
-                 <div class="stopka"></div>
+
+    <center>
+<div class="container">
+  <hr/>
+<div class="stopka"></div>
                  		
 						    <script>
 						    $.getJSON('http://echo.jsontest.com/Autor/Bartek/Program/Kalkulator', function(footer) {
 						        
-						        var text = `Autor: ${footer.Autor}
+						        var text = `Autor: ${footer.Autor} |
 						                    Program: ${footer.Program}`
 						                    
 						        
 						        $(".stopka").html(text);
 						    });
 						    </script>
-        </div>
-    </div>
+    
 
+  </div>
+</div>
+</center>
+<br>
 
   </body>
-  </html>
+</html>
