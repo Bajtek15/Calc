@@ -1,94 +1,27 @@
-<!DOCTYPE html>
-<html ng-app="calc">
-
-  <head>
-    <meta charset="utf-8" />
-    <title>Kontakt</title>
-    <link rel="stylesheet" href="style.css" />
-    <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="app.js"></script>
-  </head>
-
-  <body>
-<nav class="navbar navbar-inverse bg-inverse">
-  <form class="form-inline">
-    <center>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-3">
-          <a href="index.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Strona Główna</button></a>
-        </div>
-        <div class="col-sm-3">
-          <a href="dom.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Dom</button></a>
-        </div>
-        <div class="col-sm-3">
-          <a href="calc.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Kalkulator</button></a>
-        </div>
-        <div class="col-sm-3">
-          <a href="kontakt.html"><button class="btn btn-outline-success" type="button" style="height:50px; width:200px">Kontakt</button></a>
-        </div>
-      </div>
-    </div>
-      </center>
-    <br>
-  </form>
-</nav>
-
-
 <div class="jumbotron text-center">
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
-              <div class="contact">
+              <div class="well well-lg">
                 <font size="10"><center>Kontakt:</center></font><br>
-                <br>
-                  
-                    ul. XXXXXX XX/XX<br>
-                    XX-XXX Bydgoszcz<br>
+                    <div adres></div>
+                    <br>
               <br>
-                    tel: XXX-XXX-XXX<br>
-                    e-mail: XXXXX@xxx.xx<br>
+                    <div kont></div>
               <br>
               <br>
-              Znajdź Nas na mapie ---------------------->
+              <div map></div>
+              <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 
               </div>
       </div>
       <div class="col-sm-6">
-              <div class="map">
+              <div class="well well-lg">
 
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d153225.0577947354!2d17.89612310817852!3d53.12560494742009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47031386764ebd6f%3A0xe49ee48c4b65f30e!2sBydgoszcz!5e0!3m2!1spl!2spl!4v1500770891509" width="500" height="400" frameborder="10" style="border:0"  allowfullscreen></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d153225.0577947354!2d17.89612310817852!3d53.12560494742009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47031386764ebd6f%3A0xe49ee48c4b65f30e!2sBydgoszcz!5e0!3m2!1spl!2spl!4v1500770891509" frameborder="10" style="border:0"  allowfullscreen></iframe>
               </div>
       </div>
     </div>
   </div>
 </div>
 
-
-<div class="footer">
-        <div class="container">
-          <center>
-                 <div class="stopka"></div>
-                    
-                        <script>
-                        $.getJSON('http://echo.jsontest.com/Autor/Bartek/Program/Kalkulator', function(footer) {
-                            
-                            var text = `Autor: ${footer.Autor}
-                                        Program: ${footer.Program}`
-                                        
-                            
-                            $(".stopka").html(text);
-                        });
-                        </script>
-        </div>
-    </div>
-
-
-
-
-  </body>
-  </html>
